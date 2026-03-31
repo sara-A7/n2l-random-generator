@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8><meta charset="UTF-8">
+body { font-family: Arial; padding: 20px; font-size: 20px; }
+button { padding: 10px 20px; font-size: 20px; }
+input { font-size: 20px; width: 100px; }
+#result { margin-top: 20px; font-size: 30px; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h2>N2L Random Generator</h2>
+
+<label>Min: </label>
+<input type="number" id="min"><br><br>
+
+<label>Max: </label>
+<input type="number" id="max"><br><br>
+
+<button onclick="generate()">Generate</button>
+
+<div id="result"></div>
+
+<script>
+function generate() {
+    let min = parseInt(document.getElementById("min").value);
+    let max = parseInt(document.getElementById("max").value);
+
+    if (isNaN(min) || isNaN(max) || min > max) {
+        document.getElementById("result").innerText = "Invalid values!";
+        return;
+    }
+
+    let rand = Math.floor(Math.random() * (max - min + 1)) + min;
+    document.getElementById("result").innerText = "Random: " + rand;
+}
+</script>
+
+</body>
+</html>
+``
+<title>N2L Random Generator</title>
