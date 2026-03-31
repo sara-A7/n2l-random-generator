@@ -3,53 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Generator</title>
+    <title>Random Number Generator</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
+        .random-number-display {
+            background-color: lightgrey;
             padding: 20px;
-        }
-        h1 {
-            color: orange;
-        }
-        .random-box {
-            background-color: yellow;
-            border: 2px dashed #ccc;
-            padding: 20px;
-            margin: 20px 0;
+            font-size: 2em;
             text-align: center;
-            font-size: 24px;
-        }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 18px;
-            color: #fff;
-            background-color: pink;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .instructions {
-            color: orange;
-            font-size: 16px;
-            margin: 10px 0;
         }
     </style>
 </head>
 <body>
     <h1>Random Number Generator</h1>
-    <div class="instructions">Please click the button below to generate a random number:</div>
-    <div class="random-box" id="randomBox">0</div>
-    <button class="button" onclick="generateRandomNumber()">Generate Random Number</button>
+    <label for="min">MIN:</label>
+    <input type="number" id="min" value="1" min="1">
+    <label for="max">MAX:</label>
+    <input type="number" id="max" min="1">
+    <button onclick="generateRandomNumber()">Generate</button>
+    <div class="random-number-display" id="randomNumberDisplay">Random Number Will Appear Here</div>
 
     <script>
         function generateRandomNumber() {
-            const randomNumber = Math.floor(Math.random() * 100);
-            document.getElementById('randomBox').innerText = randomNumber;
+            const min = parseInt(document.getElementById('min').value);
+            const max = parseInt(document.getElementById('max').value);
+            const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            document.getElementById('randomNumberDisplay').textContent = randomNumber;
         }
     </script>
 </body>
