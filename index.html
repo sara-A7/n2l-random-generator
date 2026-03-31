@@ -3,37 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Aptos&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aptosp
+
     <style>
         body {
             font-family: 'Aptos', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            margin: 30px;
         }
+
+        h1 {
+            color: #004AAD; /* deep friendly blue */
+        }
+
+        .controls {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            border: 1px solid #888;
+            border-radius: 5px;
+            margin-right: 15px;
+            width: 80px;
+        }
+
+        #generateBtn {
+            background-color: #004AAD; 
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #generateBtn:hover {
+            background-color: #003680;
+        }
+
         .random-number-box {
-            background-color: lightgrey;
-            border: 1px solid #ccc;
-            padding: 10px;
+            background-color: #E8F0FE;
+            border: 2px solid #004AAD;
+            padding: 15px 20px;
             display: inline-block;
+            font-size: 22px;
+            border-radius: 8px;
+            color: #004AAD;
             margin-top: 20px;
         }
+
+        #randomNumber {
+            font-weight: bold;
+            font-size: 28px;
+            color: #D72638; /* strong red highlight */
+        }
     </style>
+
     <title>N2L Gerador Aleatório para ReAL e CAP</title>
 </head>
+
 <body>
- <h1>N2L Gerador Aleatório para ReAL e CAP</h1>
-    <p></p> <!-- Adding spacing before the instruction -->
+    <h1>N2L Gerador Aleatório para ReAL e CAP</h1>
+
     <p>Para CADA LISTA mudar o número total de meninas ou meninos em MAX:</p>
-    <p></p> <!-- Adding spacing after the instruction -->
-    <script src="script.js"></script>
+
     <div class="controls">
-        <label for="min">MIN: </label>
+        <label for="min">MIN:</label>
         <input type="number" id="min" value="1" readonly>
-        <label for="max">MAX: </label>
+
+        <label for="max">MAX:</label>
         <input type="number" id="max" value="100">
+
         <button id="generateBtn">Gerar Random</button>
     </div>
+
     <div class="random-number-box" id="randomNumberDisplay">
         Random: <span id="randomNumber">0</span>
     </div>
+
     <script>
         document.getElementById('generateBtn').addEventListener('click', function() {
             const min = Number(document.getElementById('min').value);
