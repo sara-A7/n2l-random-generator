@@ -3,63 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@400&display=swap" rel="stylesheet">
+    <title>N2L Random Generator</title>
     <style>
         body {
-            font-family: 'Aptos', sans-serif;
-            background-color: #f2f2f2; /* light background */
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9; /* Light background color */
             color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
             margin: 0;
+            padding: 20px;
+            line-height: 1.6;
         }
         h1 {
-            color: #ff4500; /* orange instruction text */
+            color: #4a90e2; /* Soft blue color for headings */
+            margin-bottom: 20px;
         }
-        .random-box {
-            background-color: #d3d3d3; /* light grey */
-            border: 2px solid #ccc;
+        .container {
+            max-width: 800px;
+            margin: auto;
             padding: 20px;
+            background-color: #ffffff; /* White container background */
             border-radius: 8px;
-            font-size: 2rem;
-            margin: 20px;
-            width: 200px;
-            text-align: center;
-        }
-        input, button {
-            padding: 10px;
-            font-size: 1rem;
-            margin: 5px;
-            border-radius: 5px;
-            border: 2px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         button {
-            background-color: #4CAF50; /* green button */
-            color: white;
+            background-color: #4a90e2; /* Button color */
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #45a049; /* darker green on hover */
+            background-color: #357ab8; /* Darker shade on hover */
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
         }
     </style>
-    <title>Random Number Generator</title>
 </head>
 <body>
-    <h1>Generate a Random Number</h1>
-    <div class="random-box" id="random-number">1</div>
-    <input type="number" id="max-number" placeholder="Enter MAX number" min="1">
-    <button onclick="generateRandomNumber()">Generate</button>
-
-    <script>
-        function generateRandomNumber() {
-            const max = parseInt(document.getElementById('max-number').value) || 1;
-            const randomNumber = Math.floor(Math.random() * max) + 1;
-            document.getElementById('random-number').textContent = randomNumber;
-        }
-    </script>
+    <div class="container">
+        <h1>N2L Random Generator</h1>
+        <button>Generate</button>
+        <footer>© 2026 N2L Random Generator</footer>
+    </div>
 </body>
 </html>
