@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8><meta charset="UTF-8">
-body { font-family: Arial; padding: 20px; font-size: 20px; }
-button { padding: 10px 20px; font-size: 20px; }
-input { font-size: 20px; width: 100px; }
-#result { margin-top: 20px; font-size: 30px; font-weight: bold; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: orange;
+        }
+        .random-box {
+            background-color: yellow;
+            border: 2px dashed #ccc;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 24px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: pink;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .instructions {
+            color: orange;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
+    <h1>Random Number Generator</h1>
+    <div class="instructions">Please click the button below to generate a random number:</div>
+    <div class="random-box" id="randomBox">0</div>
+    <button class="button" onclick="generateRandomNumber()">Generate Random Number</button>
 
-<h2>N2L Random Generator</h2>
-
-<label>Min: </label>
-<input type="number" id="min"><br><br>
-
-<label>Max: </label>
-<input type="number" id="max"><br><br>
-
-<button onclick="generate()">Generate</button>
-
-<div id="result"></div>
-
-<script>
-function generate() {
-    let min = parseInt(document.getElementById("min").value);
-    let max = parseInt(document.getElementById("max").value);
-
-    if (isNaN(min) || isNaN(max) || min > max) {
-        document.getElementById("result").innerText = "Invalid values!";
-        return;
-    }
-
-    let rand = Math.floor(Math.random() * (max - min + 1)) + min;
-    document.getElementById("result").innerText = "Random: " + rand;
-}
-</script>
-
+    <script>
+        function generateRandomNumber() {
+            const randomNumber = Math.floor(Math.random() * 100);
+            document.getElementById('randomBox').innerText = randomNumber;
+        }
+    </script>
 </body>
 </html>
-``
-<title>N2L Random Generator</title>
