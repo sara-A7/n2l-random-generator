@@ -3,32 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N2L Gerador Aleatório para ReAL e CAP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Aptos&display=swap" rel="stylesheet">
+    <title>Random Generator</title>
     <style>
-        .random-number-display {
-            background-color: lightgrey;
+        body {
+            font-family: 'Aptos', sans-serif;
+            background-color: #f9f9f9;
             padding: 20px;
-            font-size: 2em;
-            text-align: center;
+            color: #333;
+            line-height: 1.6;
+        }
+        input[type="number"], input[type="text"] {
+            padding: 0.5em;
+            margin: 0.5em 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        input[disabled] {
+            background-color: #e9e9e9;
+            color: #666;
+            cursor: not-allowed;
+        }
+        /* Additional styling for better visuals */
+        h1, h2 {
+            color: #0056b3;
+        }
+        button {
+            padding: 0.7em;
+            border: none;
+            border-radius: 5px;
+            background-color: #0056b3;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004494;
         }
     </style>
 </head>
 <body>
-    <h1>N2L Gerador Aleatório para ReAL e CAP</h1>
-    <label for="min">MIN:</label>
-    <input type="number" id="min" value="1" min="1">
-    <label for="max">MAX:</label>
-    <input type="number" id="max" min="1">
-    <button onclick="generateRandomNumber()">Generate</button>
-    <div class="random-number-display" id="randomNumberDisplay">Número RANDOM vai aparecer aqui.</div>
+    <h1>Random Generator</h1>
 
-    <script>
-        function generateRandomNumber() {
-            const min = parseInt(document.getElementById('min').value);
-            const max = parseInt(document.getElementById('max').value);
-            const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-            document.getElementById('randomNumberDisplay').textContent = randomNumber;
-        }
-    </script>
+    <form>
+        <label for="minField">MIN:</label>
+        <input type="number" id="minField" value="1" disabled>
+
+        <label for="maxField">MAX:</label>
+        <input type="number" id="maxField" placeholder="Enter max value here">
+
+        <button type="submit">Generate</button>
+    </form>
 </body>
 </html>
