@@ -1,51 +1,101 @@
-<!doctype html>
-<html>
-  <head>
-    <script>
-      function generateNumber() {
-        var number = document.getElementById("generate");
-        number.innerHTML = Math.floor((Math.random()* 100) + 1);
-      }
-    </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    https://fonts.googleapis.com/css2?family=Aptos&display=swap
+
     <style>
-      html {
-       background-color: chartreuse;
-        border-color: 1px solid;
-      }
-      button {
-          display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-        font-family: monospace;
-      }
-      button:hover {background-color: #3e8e41}
-      
-button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-      p {
-        font-size: 25px;
-        font-family: monospace;
-      }
+        body {
+            font-family: 'Aptos', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            margin: 30px;
+        }
+
+        h1 {
+            color: #004AAD; /* deep friendly blue */
+        }
+
+        .controls {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            border: 1px solid #888;
+            border-radius: 5px;
+            margin-right: 15px;
+            width: 80px;
+        }
+
+        #generateBtn {
+            background-color: #004AAD; 
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #generateBtn:hover {
+            background-color: #003680;
+        }
+
+        .random-number-box {
+            background-color: #E8F0FE;
+            border: 2px solid #004AAD;
+            padding: 15px 20px;
+            display: inline-block;
+            font-size: 22px;
+            border-radius: 8px;
+            color: #004AAD;
+            margin-top: 20px;
+        }
+
+        #randomNumber {
+            font-weight: bold;
+            font-size: 28px;
+            color: #D72638; /* strong red highlight */
+        }
     </style>
-  </head>
-  <body>
-    <center>
-      
-    <p> Click me to generate a random number</p>
-    <button onclick="generateNumber()">click me</button>
-    <p id="generate"></p>
-      <center>
-  </body>
+
+    <title>N2L Gerador Aleatório para ReAL e CAP</title>
+</head>
+
+<body>
+    <h1>N2L Gerador Aleatório para ReAL e CAP</h1>
+
+    <p>Para CADA LISTA mudar o número total de meninas ou meninos em MAX:</p>
+
+    <div class="controls">
+        <label for="min">MIN:</label>
+        <input type="number" id="min" value="1" readonly>
+
+        <label for="max">MAX:</label>
+        <input type="number" id="max" value="100">
+
+        <button id="generateBtn">Gerar Random</button>
+    </div>
+
+    <div class="random-number-box" id="randomNumberDisplay">
+        Random: <span id="randomNumber">0</span>
+    </div>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            const min = Number(document.getElementById('min').value);
+            const max = Number(document.getElementById('max').value);
+            const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            document.getElementById('randomNumber').innerText = randomNumber;
+        });
+    </script>
+</body>
 </html>
